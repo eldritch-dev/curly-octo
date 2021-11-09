@@ -1,25 +1,25 @@
-# App Web e-Commerce Arquitectura MVC.
-Proyecto e-Commerce creado con NodeJS, Express, Sequelize, PostgreSQL y EJS.
+# e-Commerce web app with MVC architecture.
+e-Commerce project built on NodeJS, Express, Sequelize, PostgreSQL and EJS.
 
-## Instrucciones para correr la app web
+## Instructions to run the app
 
-0.- El servidor o equipo donde se quiera correr la app debe tener el motor de BD PostgreSQL instalado
+0.- You must have PostgreSQL installed on the server or machine on wich you intend to run this app.
 ### Para mayor información, visitar https://www.postgresql.org/
 
-1.- Crear base de datos
+1.- Create database
 ### `npm run db:create` || `npx sequelize-cli db:create`
 
-2.- Crear modelos y migraciones
+2.- Create models and migrations
 ### `npx sequelize-cli model:generate --name Client --attributes name:string,status:string --force` 
 ### `npx sequelize-cli model:generate --name Product --attributes name:string,price:integer,quantity:string, stock:integer --force`
 ### `npx sequelize-cli model:generate --name Sale --attributes client_id:integer,tax:integer,discount:integer,total:integer --force`
 ### `npx sequelize-cli model:generate --name Detail --attributes sale_id:integer,quantity:integer,product_id:integer,subtotal:integer --force`
 
-3.- Correr migraciones
+3.- Run migrations
 ### `npm run db:migrate` || `npx sequelize-cli db:migrate`
 
-3.- Sembrar la BD
+4.- Seed database
 ### `npm run db:seed` || `npx sequelize-cli db:seed:all`
 
-4.- Iniciar la App
+5.- Start app
 ### `npm start`
