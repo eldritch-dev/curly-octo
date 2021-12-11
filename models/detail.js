@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Detail.belongsTo(models.Product, { foreignKey: 'product_id', as: 'product', onDelete: 'CASCADE' });
-      Detail.belongsTo(models.Sale, { foreignKey: 'sale_id', as: 'sale', onDelete: 'CASCADE' });
+      Detail.belongsTo(models.Sale, { foreignKey: 'sale_id', as: 'sale' });
+      Detail.belongsTo(models.Product, { foreignKey: 'product_id', as: 'product' });
     }
   };
   Detail.init({
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     quantity: { 
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     product_id: {
       type: DataTypes.INTEGER,
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     subtotal: { 
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

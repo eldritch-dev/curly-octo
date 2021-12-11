@@ -9,15 +9,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       client_id: {
+        references: {
+          model: {
+            tableName: 'Clients'
+          },
+          key: 'id'
+        },
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       tax: {
+        allowNull: false,
+        defaultValue: 19,
         type: Sequelize.INTEGER
       },
       discount: {
         type: Sequelize.INTEGER
       },
       total: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Product.hasOne(models.Detail, { foreignKey: 'product_id', as: 'detail', onDelete: 'CASCADE' });
+      Product.hasOne(models.Detail, { foreignKey: 'product_id', as: 'detail' });
     }
   };
   Product.init({
