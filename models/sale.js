@@ -10,14 +10,32 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.hasMany(models.Detail, { foreignKey: 'id', as: 'details' })
+      this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'client', onDelete: 'cascade' })
     }
   };
   Sale.init({
-    client_id: DataTypes.INTEGER,
-    tax: DataTypes.INTEGER,
-    discount: DataTypes.INTEGER,
-    total: DataTypes.INTEGER
+    client_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: sequelize.Client,
+        key: 'id'
+      },
+      allowNull: false
+    },
+    tax: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 19
+    },
+    discount: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    total: { 
+      type: DataTypes.INTEGER,
+      allowNull: true
+    }
   }, {
     sequelize,
     modelName: 'Sale',

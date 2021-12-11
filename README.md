@@ -11,7 +11,7 @@ e-Commerce project built on NodeJS, Express, Sequelize, PostgreSQL and EJS.
 
 2.- Create models and migrations
 ### `npx sequelize-cli model:generate --name Client --attributes name:string,status:string --force` 
-### `npx sequelize-cli model:generate --name Product --attributes name:string,price:integer,quantity:string,stock:integer --force`
+### `npx sequelize-cli model:generate --name Product --attributes name:string,price:integer,stock:integer --force`
 ### `npx sequelize-cli model:generate --name Sale --attributes client_id:integer,tax:integer,discount:integer,total:integer --force`
 ### `npx sequelize-cli model:generate --name Detail --attributes sale_id:integer,quantity:integer,product_id:integer,subtotal:integer --force`
 
