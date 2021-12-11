@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.Detail, { foreignKey: 'id', as: 'details' })
-      this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'client', onDelete: 'cascade' })
+      this.belongsTo(models.Client, { foreignKey: 'client_id', as: 'client', onDelete: 'CASCADE' })
     }
   };
   Sale.init({
