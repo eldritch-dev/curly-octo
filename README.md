@@ -18,8 +18,8 @@ e-Commerce project built on NodeJS, Express, Sequelize, PostgreSQL and EJS.
 3.- Run migrations
 ### `npm run db:migrate` || `npx sequelize-cli db:migrate`
 
-4.- Seed database
-### `npm run db:seed` || `npx sequelize-cli db:seed:all`
+4.- Seed database in correct models order
+### `npx sequelize-cli db:seed --seed seedFile.js`
 
 5.- Start app
 ### `npm start`
