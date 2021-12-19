@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="row">
+            <h1>Products List</h1>
+            <div class="col">
+                <table class="table" style="width:100%">
+                    <thead>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </thead>
+                    <tbody>
+                        <% if (products.length > 0) { %>
+                            <% products.forEach(product => { %>
+                                <tr>
+                                    <td><%= product.name %></td>
+                                    <td><%= product.price %></td>
+                                    <td><%= product.stock %></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <p>There are no products to show yet</p>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

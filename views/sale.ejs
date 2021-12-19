@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="sales content">
+            <h2 class="sale">Sale Id: <%= sale.id %>, Client Id: <%= sale.client_id %></h2>
+            <h3 class="sale_date">Date: <%= sale.createdAt %></h3>
+            <h2 class="detail">Sale Detail</h2>
+            <div class="detail content">    
+                <% if (details.length > 0) { %>
+                    <% details.forEach(detail => { %>
+                        <h3 class="details">Sale: <%= detail.sale_id %>,  Product: <%= detail.product_id %>, Quantity: <%= detail.quantity %>, Subtotal: <%= detail.subtotal %></h3>
+                    <% }) %>
+                <% } else { %>
+                    <p>There are no sales details to show yet</p>
+                <% } %>
+            </div>
+            <h3 class="venta_iva">IVA: <%= sale.tax %></h3>
+            <h3 class="venta_descuento">Descuento: <%= sale.discount %></h3>
+            <h3 class="venta_total">Total: <%= sale.total %></h3>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

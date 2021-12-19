@@ -86,17 +86,17 @@ display: block;
 position: absolute;
 }
 
-#Clientes:hover #clientesContent{
+#Clients:hover #clientsContent{
 display: block;
 position: absolute;
 }
 
-#Productos:hover #productosContent{
+#Products:hover #productsContent{
 display: block;
 position: absolute; 
 }
 
-#Ventas:hover #ventasContent{
+#Sales:hover #salesContent{
 display: block;
 position: absolute; 
 }
@@ -174,7 +174,7 @@ textarea {
     padding: 6px;
 }
 
-.clientes {
+.clients {
     position: relative;
 }
 
@@ -190,21 +190,21 @@ textarea {
     box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
 
-.limpiar {
+.clean {
     position: absolute;
     margin-left: 47%;
     border-radius: 50%;
     padding: 8px;
 }
 
-.fijo-venta-vacio {
+.fixed-empty-sale {
     width: 400px;
 }
 
-.fijo-venta-label {
+.fixed-sale-value {
     text-align: right;
 }
 
-.fijo-venta-value, .generar-venta {
+.fixed-sale-value, .generate-sale {
     text-align: center;
 }
