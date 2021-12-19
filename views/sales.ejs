@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="row">
+            <h1>Client's Sales List</h1>
+            <div class="col">
+                <table class="table" style="width:100%">
+                    <thead>
+                        <th>Sale Id</th>
+                        <th>Client</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody>
+                        <% if (sales.length > 0) { %>
+                            <% sales.forEach(sale => { %>
+                                <tr>
+                                    <td><%= sale.id %></td>
+                                    <td><%= sale.client_id %></td>
+                                    <td><%= sale.createdAt %></td>
+                                    <td><%= sale.total %></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <p>There are no sales to show yet</p>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

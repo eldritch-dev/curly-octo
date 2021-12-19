@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+        <div class="clients-content">
+            <h1>Client: <%= ec_Client.name %> ID: <%= ec_Client.id %></h1>
+            <td></td>
+            <td><a href="http://localhost:3066/clients/" class="delete" id="delete-client" data-id="<%= ec_Client.id %>">Delete Client</a></td>
+            <h1>Status: <%= ec_Client.status %></h1>
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            const doc = document,
+                $delete = doc.querySelector(".delete");
+
+            doc.addEventListener("click", async e => {
+                if (e.target.matches(".delete")) {
+                    let isDelete = confirm(`Are you sure you want to delete client id ${e.target.dataset.id}?`);
+
+                    console.log("isDelete", isDelete);
+    
+                    if (isDelete) {                        
+                        try {
+                            let options = {
+                                method: "DELETE",
+                                headers: {
+                                    "Content-Type":"application/json; charset=utf-8"
+                                }
+                            },
+                            res = await axios(`http://localhost:3066/clients/${e.target.dataset.id}`, options),
+                            json = await res.data;
+
+                            location.reload();
+                            console.log("page should be reloaded");
+                        } catch (error) {
+                            console.log("error", error);
+                            let message = err.statusText || "Oops, something went wrong";
+                            alert(`Error ${err.status}: ${message}`);
+                        };
+                    };
+                };
+            });            
+        </script>
+    </body>
+</html>

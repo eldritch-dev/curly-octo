@@ -5,6 +5,7 @@ const PORT = 3066;
 
 const clientRoutes = require('./routes/clientRoutes');
 const productRoutes = require('./routes/productRoutes');
+const saleRoutes = require('./routes/saleRoutes');
 
 // Server
 app.listen(PORT, async() => {
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/clients', clientRoutes);
 app.use('/products', productRoutes);
+app.use('/sales', saleRoutes);
 
 app.use((req, res) => {
     res.status(404).render('404', { title: '404 - Page not found' });
